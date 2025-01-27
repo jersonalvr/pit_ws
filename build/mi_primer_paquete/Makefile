@@ -56,16 +56,17 @@ CMAKE_BINARY_DIR = /home/jerson/pit_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -78,16 +79,15 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-.PHONY : test/fast
+.PHONY : list_install_components/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -101,15 +101,27 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target test
+test/fast: test
 
-.PHONY : list_install_components/fast
+.PHONY : test/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # Special rule for the target install
 install: preinstall
@@ -122,18 +134,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+mi_primer_paquete/CMakeFiles/pub_sub.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/pub_sub.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/pub_sub.dir/rule
+
+# Convenience name for target.
+pub_sub: mi_primer_paquete/CMakeFiles/pub_sub.dir/rule
+
+.PHONY : pub_sub
+
+# fast build rule for target.
+pub_sub/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/pub_sub.dir/build.make mi_primer_paquete/CMakeFiles/pub_sub.dir/build
+.PHONY : pub_sub/fast
+
+# Convenience name for target.
 mi_primer_paquete/CMakeFiles/sub_pose.dir/rule:
 	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/sub_pose.dir/rule
 .PHONY : mi_primer_paquete/CMakeFiles/sub_pose.dir/rule
@@ -198,19 +213,289 @@ publicador/fast:
 .PHONY : publicador/fast
 
 # Convenience name for target.
-mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_eus: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+rosgraph_msgs_generate_messages_py: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_eus
+.PHONY : rosgraph_msgs_generate_messages_py
 
 # fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
+rosgraph_msgs_generate_messages_py/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+.PHONY : rosgraph_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_lisp: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+.PHONY : roscpp_generate_messages_lisp
+
+# fast build rule for target.
+roscpp_generate_messages_lisp/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+.PHONY : roscpp_generate_messages_lisp/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_nodejs: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+geometry_msgs_generate_messages_nodejs/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+.PHONY : geometry_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_lisp: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_lisp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_lisp/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_eus: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_eus
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_eus/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+.PHONY : rosgraph_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+turtlesim_generate_messages_nodejs: mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule
+
+.PHONY : turtlesim_generate_messages_nodejs
+
+# fast build rule for target.
+turtlesim_generate_messages_nodejs/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_nodejs.dir/build.make mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_nodejs.dir/build
+.PHONY : turtlesim_generate_messages_nodejs/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_py: mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+
+.PHONY : std_srvs_generate_messages_py
+
+# fast build rule for target.
+std_srvs_generate_messages_py/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_py.dir/build.make mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_py.dir/build
+.PHONY : std_srvs_generate_messages_py/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_cpp: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_cpp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_cpp/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_nodejs: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+
+.PHONY : roscpp_generate_messages_nodejs
+
+# fast build rule for target.
+roscpp_generate_messages_nodejs/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make mi_primer_paquete/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+.PHONY : roscpp_generate_messages_nodejs/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_eus: mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+
+.PHONY : std_msgs_generate_messages_eus
+
+# fast build rule for target.
+std_msgs_generate_messages_eus/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+.PHONY : std_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_lisp: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_lisp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_lisp/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+.PHONY : geometry_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_py: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/rule
+
+.PHONY : roscpp_generate_messages_py
+
+# fast build rule for target.
+roscpp_generate_messages_py/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/build.make mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/build
+.PHONY : roscpp_generate_messages_py/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_lisp: mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : std_msgs_generate_messages_lisp
+
+# fast build rule for target.
+std_msgs_generate_messages_lisp/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+.PHONY : std_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_nodejs: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_nodejs/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_eus: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+
+.PHONY : roscpp_generate_messages_eus
+
+# fast build rule for target.
+roscpp_generate_messages_eus/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/roscpp_generate_messages_eus.dir/build.make mi_primer_paquete/CMakeFiles/roscpp_generate_messages_eus.dir/build
+.PHONY : roscpp_generate_messages_eus/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_cpp: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+
+.PHONY : roscpp_generate_messages_cpp
+
+# fast build rule for target.
+roscpp_generate_messages_cpp/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+.PHONY : roscpp_generate_messages_cpp/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_py: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_py
+
+# fast build rule for target.
+geometry_msgs_generate_messages_py/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+.PHONY : geometry_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_cpp: mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : std_msgs_generate_messages_cpp
+
+# fast build rule for target.
+std_msgs_generate_messages_cpp/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+.PHONY : std_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_cpp: mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+
+.PHONY : std_srvs_generate_messages_cpp
+
+# fast build rule for target.
+std_srvs_generate_messages_cpp/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
+.PHONY : std_srvs_generate_messages_cpp/fast
 
 # Convenience name for target.
 mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
@@ -243,214 +528,19 @@ std_msgs_generate_messages_nodejs/fast:
 .PHONY : std_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_py: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+geometry_msgs_generate_messages_eus: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_py
+.PHONY : geometry_msgs_generate_messages_eus
 
 # fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_cpp: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-.PHONY : roscpp_generate_messages_cpp
-
-# fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
-
-# Convenience name for target.
-mi_primer_paquete/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_eus: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/roscpp_generate_messages_eus.dir/build.make mi_primer_paquete/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
-
-# Convenience name for target.
-mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_py: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-.PHONY : roscpp_generate_messages_py
-
-# fast build rule for target.
-roscpp_generate_messages_py/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/build.make mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/build
-.PHONY : roscpp_generate_messages_py/fast
-
-# Convenience name for target.
-mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-mi_primer_paquete/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_nodejs: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-.PHONY : roscpp_generate_messages_nodejs
-
-# fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make mi_primer_paquete/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
-
-# Convenience name for target.
-mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_eus: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_eus
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_nodejs: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-geometry_msgs_generate_messages_nodejs/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-.PHONY : geometry_msgs_generate_messages_nodejs/fast
+geometry_msgs_generate_messages_eus/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+.PHONY : geometry_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
@@ -468,34 +558,136 @@ geometry_msgs_generate_messages_cpp/fast:
 .PHONY : geometry_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
-mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_lisp: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+turtlesim_generate_messages_cpp: mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule
 
-.PHONY : roscpp_generate_messages_lisp
+.PHONY : turtlesim_generate_messages_cpp
 
 # fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
+turtlesim_generate_messages_cpp/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_cpp.dir/build.make mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_cpp.dir/build
+.PHONY : turtlesim_generate_messages_cpp/fast
 
 # Convenience name for target.
-mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-.PHONY : mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_eus.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_eus.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_py: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+turtlesim_generate_messages_eus: mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_eus.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_py
+.PHONY : turtlesim_generate_messages_eus
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
+turtlesim_generate_messages_eus/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_eus.dir/build.make mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_eus.dir/build
+.PHONY : turtlesim_generate_messages_eus/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+turtlesim_generate_messages_lisp: mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
+
+.PHONY : turtlesim_generate_messages_lisp
+
+# fast build rule for target.
+turtlesim_generate_messages_lisp/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_lisp.dir/build.make mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_lisp.dir/build
+.PHONY : turtlesim_generate_messages_lisp/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_py.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_py.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_py.dir/rule
+
+# Convenience name for target.
+turtlesim_generate_messages_py: mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_py.dir/rule
+
+.PHONY : turtlesim_generate_messages_py
+
+# fast build rule for target.
+turtlesim_generate_messages_py/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_py.dir/build.make mi_primer_paquete/CMakeFiles/turtlesim_generate_messages_py.dir/build
+.PHONY : turtlesim_generate_messages_py/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_nodejs: mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
+
+.PHONY : std_srvs_generate_messages_nodejs
+
+# fast build rule for target.
+std_srvs_generate_messages_nodejs/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
+.PHONY : std_srvs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_eus: mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
+
+.PHONY : std_srvs_generate_messages_eus
+
+# fast build rule for target.
+std_srvs_generate_messages_eus/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_eus.dir/build
+.PHONY : std_srvs_generate_messages_eus/fast
+
+# Convenience name for target.
+mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+.PHONY : mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_lisp: mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+
+.PHONY : std_srvs_generate_messages_lisp
+
+# fast build rule for target.
+std_srvs_generate_messages_lisp/fast:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make mi_primer_paquete/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
+.PHONY : std_srvs_generate_messages_lisp/fast
+
+src/pub_sub.o: src/pub_sub.cpp.o
+
+.PHONY : src/pub_sub.o
+
+# target to build an object file
+src/pub_sub.cpp.o:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/pub_sub.dir/build.make mi_primer_paquete/CMakeFiles/pub_sub.dir/src/pub_sub.cpp.o
+.PHONY : src/pub_sub.cpp.o
+
+src/pub_sub.i: src/pub_sub.cpp.i
+
+.PHONY : src/pub_sub.i
+
+# target to preprocess a source file
+src/pub_sub.cpp.i:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/pub_sub.dir/build.make mi_primer_paquete/CMakeFiles/pub_sub.dir/src/pub_sub.cpp.i
+.PHONY : src/pub_sub.cpp.i
+
+src/pub_sub.s: src/pub_sub.cpp.s
+
+.PHONY : src/pub_sub.s
+
+# target to generate assembly for a file
+src/pub_sub.cpp.s:
+	cd /home/jerson/pit_ws/build && $(MAKE) -f mi_primer_paquete/CMakeFiles/pub_sub.dir/build.make mi_primer_paquete/CMakeFiles/pub_sub.dir/src/pub_sub.cpp.s
+.PHONY : src/pub_sub.cpp.s
 
 src/publicador.o: src/publicador.cpp.o
 
@@ -557,35 +749,49 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
+	@echo "... install/strip"
 	@echo "... edit_cache"
+	@echo "... list_install_components"
+	@echo "... pub_sub"
 	@echo "... sub_pose"
-	@echo "... test"
 	@echo "... publicador"
+	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... roscpp_generate_messages_lisp"
+	@echo "... geometry_msgs_generate_messages_nodejs"
+	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... install/local"
-	@echo "... geometry_msgs_generate_messages_eus"
+	@echo "... rosgraph_msgs_generate_messages_eus"
+	@echo "... turtlesim_generate_messages_nodejs"
+	@echo "... test"
+	@echo "... std_srvs_generate_messages_py"
+	@echo "... rosgraph_msgs_generate_messages_cpp"
+	@echo "... roscpp_generate_messages_nodejs"
+	@echo "... std_msgs_generate_messages_eus"
+	@echo "... geometry_msgs_generate_messages_lisp"
+	@echo "... roscpp_generate_messages_py"
+	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... rebuild_cache"
+	@echo "... roscpp_generate_messages_eus"
+	@echo "... roscpp_generate_messages_cpp"
+	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_nodejs"
-	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
-	@echo "... list_install_components"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... roscpp_generate_messages_py"
-	@echo "... install"
-	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... std_msgs_generate_messages_eus"
-	@echo "... roscpp_generate_messages_nodejs"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... install/strip"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_nodejs"
+	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... turtlesim_generate_messages_cpp"
+	@echo "... install"
+	@echo "... turtlesim_generate_messages_eus"
+	@echo "... turtlesim_generate_messages_lisp"
+	@echo "... turtlesim_generate_messages_py"
+	@echo "... std_srvs_generate_messages_nodejs"
+	@echo "... std_srvs_generate_messages_eus"
+	@echo "... std_srvs_generate_messages_lisp"
+	@echo "... src/pub_sub.o"
+	@echo "... src/pub_sub.i"
+	@echo "... src/pub_sub.s"
 	@echo "... src/publicador.o"
 	@echo "... src/publicador.i"
 	@echo "... src/publicador.s"

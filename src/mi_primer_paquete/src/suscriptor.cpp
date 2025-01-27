@@ -1,7 +1,6 @@
 #include "ros/ros.h"
 #include "turtlesim/Pose.h"
 #include "geometry_msgs/Twist.h"
-#include <iostream>
 #include <locale.h>
 
 turtlesim::Pose pose_turtle;

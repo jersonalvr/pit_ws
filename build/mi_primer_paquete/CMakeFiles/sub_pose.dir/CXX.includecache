@@ -13,8 +13,6 @@ turtlesim/Pose.h
 /home/jerson/pit_ws/src/mi_primer_paquete/src/turtlesim/Pose.h
 geometry_msgs/Twist.h
 /home/jerson/pit_ws/src/mi_primer_paquete/src/geometry_msgs/Twist.h
-iostream
--
 locale.h
 -
 
