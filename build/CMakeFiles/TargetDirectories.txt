@@ -35,13 +35,16 @@
 /home/jerson/pit_ws/build/gtest/googletest/CMakeFiles/test.dir
 /home/jerson/pit_ws/build/gtest/googletest/CMakeFiles/gtest_main.dir
 /home/jerson/pit_ws/build/gtest/googletest/CMakeFiles/gtest.dir
-/home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/install/local.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/rebuild_cache.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/edit_cache.dir
+/home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/sub_pose.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/test.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/publicador.dir
+/home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/install/local.dir
+/home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_py.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_nodejs.dir
+/home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/roscpp_generate_messages_eus.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir
@@ -49,6 +52,7 @@
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_lisp.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/install.dir
+/home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/roscpp_generate_messages_nodejs.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir
@@ -56,5 +60,7 @@
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_cpp.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir
+/home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
+/home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir
 /home/jerson/pit_ws/build/mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_py.dir

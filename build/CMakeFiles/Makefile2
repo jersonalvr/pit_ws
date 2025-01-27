@@ -136,6 +136,7 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 # Directory level rules for directory mi_primer_paquete
 
 # Recursive "all" directory target.
+mi_primer_paquete/all: mi_primer_paquete/CMakeFiles/sub_pose.dir/all
 mi_primer_paquete/all: mi_primer_paquete/CMakeFiles/publicador.dir/all
 
 .PHONY : mi_primer_paquete/all
@@ -146,20 +147,26 @@ mi_primer_paquete/preinstall:
 .PHONY : mi_primer_paquete/preinstall
 
 # Recursive "clean" directory target.
+mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/sub_pose.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/publicador.dir/clean
+mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
+mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_eus.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/clean
+mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
+mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
 mi_primer_paquete/clean: mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 
@@ -410,6 +417,33 @@ gtest/googletest/CMakeFiles/gtest.dir/clean:
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/clean
 
 #=============================================================================
+# Target rules for target mi_primer_paquete/CMakeFiles/sub_pose.dir
+
+# All Build rule for target.
+mi_primer_paquete/CMakeFiles/sub_pose.dir/all:
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/sub_pose.dir/build.make mi_primer_paquete/CMakeFiles/sub_pose.dir/depend
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/sub_pose.dir/build.make mi_primer_paquete/CMakeFiles/sub_pose.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jerson/pit_ws/build/CMakeFiles --progress-num=11,12 "Built target sub_pose"
+.PHONY : mi_primer_paquete/CMakeFiles/sub_pose.dir/all
+
+# Build rule for subdir invocation for target.
+mi_primer_paquete/CMakeFiles/sub_pose.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jerson/pit_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/sub_pose.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jerson/pit_ws/build/CMakeFiles 0
+.PHONY : mi_primer_paquete/CMakeFiles/sub_pose.dir/rule
+
+# Convenience name for target.
+sub_pose: mi_primer_paquete/CMakeFiles/sub_pose.dir/rule
+
+.PHONY : sub_pose
+
+# clean rule for target.
+mi_primer_paquete/CMakeFiles/sub_pose.dir/clean:
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/sub_pose.dir/build.make mi_primer_paquete/CMakeFiles/sub_pose.dir/clean
+.PHONY : mi_primer_paquete/CMakeFiles/sub_pose.dir/clean
+
+#=============================================================================
 # Target rules for target mi_primer_paquete/CMakeFiles/publicador.dir
 
 # All Build rule for target.
@@ -435,6 +469,33 @@ publicador: mi_primer_paquete/CMakeFiles/publicador.dir/rule
 mi_primer_paquete/CMakeFiles/publicador.dir/clean:
 	$(MAKE) -f mi_primer_paquete/CMakeFiles/publicador.dir/build.make mi_primer_paquete/CMakeFiles/publicador.dir/clean
 .PHONY : mi_primer_paquete/CMakeFiles/publicador.dir/clean
+
+#=============================================================================
+# Target rules for target mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir
+
+# All Build rule for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jerson/pit_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_eus"
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jerson/pit_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jerson/pit_ws/build/CMakeFiles 0
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_eus: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_eus
+
+# clean rule for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
 # Target rules for target mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_py.dir
@@ -489,6 +550,33 @@ std_msgs_generate_messages_nodejs: mi_primer_paquete/CMakeFiles/std_msgs_generat
 mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean:
 	$(MAKE) -f mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 .PHONY : mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jerson/pit_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_py"
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jerson/pit_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jerson/pit_ws/build/CMakeFiles 0
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_py: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_py
+
+# clean rule for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
 # Target rules for target mi_primer_paquete/CMakeFiles/roscpp_generate_messages_cpp.dir
@@ -624,6 +712,33 @@ roscpp_generate_messages_py: mi_primer_paquete/CMakeFiles/roscpp_generate_messag
 mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/clean:
 	$(MAKE) -f mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/build.make mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/clean
 .PHONY : mi_primer_paquete/CMakeFiles/roscpp_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jerson/pit_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_lisp"
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jerson/pit_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jerson/pit_ws/build/CMakeFiles 0
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_lisp: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_lisp
+
+# clean rule for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
 
 #=============================================================================
 # Target rules for target mi_primer_paquete/CMakeFiles/std_msgs_generate_messages_eus.dir
@@ -786,6 +901,60 @@ rosgraph_msgs_generate_messages_lisp: mi_primer_paquete/CMakeFiles/rosgraph_msgs
 mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean:
 	$(MAKE) -f mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
 .PHONY : mi_primer_paquete/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
+
+# All Build rule for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jerson/pit_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_nodejs"
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jerson/pit_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jerson/pit_ws/build/CMakeFiles 0
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_nodejs: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_nodejs
+
+# clean rule for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jerson/pit_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_cpp"
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jerson/pit_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jerson/pit_ws/build/CMakeFiles 0
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_cpp: mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_cpp
+
+# clean rule for target.
+mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+.PHONY : mi_primer_paquete/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
 # Target rules for target mi_primer_paquete/CMakeFiles/roscpp_generate_messages_lisp.dir

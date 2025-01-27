@@ -88,8 +88,8 @@ publicador_EXTERNAL_OBJECTS =
 /home/jerson/pit_ws/devel/lib/mi_primer_paquete/publicador: /opt/ros/noetic/lib/librosconsole_backend_interface.so
 /home/jerson/pit_ws/devel/lib/mi_primer_paquete/publicador: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
 /home/jerson/pit_ws/devel/lib/mi_primer_paquete/publicador: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
-/home/jerson/pit_ws/devel/lib/mi_primer_paquete/publicador: /opt/ros/noetic/lib/libroscpp_serialization.so
 /home/jerson/pit_ws/devel/lib/mi_primer_paquete/publicador: /opt/ros/noetic/lib/libxmlrpcpp.so
+/home/jerson/pit_ws/devel/lib/mi_primer_paquete/publicador: /opt/ros/noetic/lib/libroscpp_serialization.so
 /home/jerson/pit_ws/devel/lib/mi_primer_paquete/publicador: /opt/ros/noetic/lib/librostime.so
 /home/jerson/pit_ws/devel/lib/mi_primer_paquete/publicador: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
 /home/jerson/pit_ws/devel/lib/mi_primer_paquete/publicador: /opt/ros/noetic/lib/libcpp_common.so

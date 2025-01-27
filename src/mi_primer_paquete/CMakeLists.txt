@@ -9,6 +9,7 @@ project(mi_primer_paquete)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  geometry_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -133,7 +134,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/mi_primer_paquete_node.cpp)
 add_executable(publicador src/publicador.cpp)
-
+add_executable(sub_pose src/suscriptor.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -151,7 +152,9 @@ add_executable(publicador src/publicador.cpp)
 target_link_libraries(publicador
    ${catkin_LIBRARIES}
  )
-
+target_link_libraries(sub_pose
+ ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############
